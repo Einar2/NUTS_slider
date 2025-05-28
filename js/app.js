@@ -10,7 +10,14 @@ let container = document.querySelector('.slider__container');
 let slides = document.querySelectorAll('.slider__item');
 let step = 0;
 let step_click = 0;
-let width_slide = slides[0].offsetWidth  + 15
+let width_slide
+if (container.offsetWidth > 450) {
+     width_slide = slides[0].offsetWidth + 15
+
+}
+else{
+     width_slide = slides[0].offsetWidth
+}
 
 let slideStyle = getComputedStyle(slides[0]);
 let slideWidth = slides[0].getBoundingClientRect().width;
@@ -30,7 +37,7 @@ let step_end = -width_slide * (slides.length - slidesVisible);
 
 let createLine = () => {
     let block_lines = document.querySelector('.slider_active_lines')
-    for (let i = 0; i <= slides.length - slidesVisible ; i++) {
+    for (let i = 0; i <= slides.length - slidesVisible; i++) {
         let line = document.createElement('div');
         line.className = 'slider_line';
         lines.push(line)
@@ -58,7 +65,7 @@ btn_left.addEventListener('click', () => {
 
     }
     else {
-        step_click = slides.length - slidesVisible  
+        step_click = slides.length - slidesVisible
         step = step_end
         container.style.transform = `translateX(${step}px)`
         updateClassLine(step_click)
@@ -97,15 +104,15 @@ let updateClassLine = (step_click) => {
         if (lines[i].classList.contains('active_line')) {
             lines[i].classList.remove('active_line');
         }
-        
+
     }
 
     // Добавляем класс 'active_line' элементу с индексом step_click, если он существует
     if (lines[step_click]) {
         lines[step_click].classList.add('active_line');
-        
+
     }
-    
+
 }
 
 // автопрокрутка

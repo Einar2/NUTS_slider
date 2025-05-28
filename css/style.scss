@@ -65,6 +65,10 @@ body {
             align-items: center;
             transition: all ease .25s;
 
+            @media (max-width: 468px) {
+                margin-top: 10px;
+            }
+
             &:hover {
                 background-color: #B7BDAB;
             }
@@ -90,6 +94,7 @@ body {
 
             @media (max-width: 468px) {
                 width: 100%;
+                min-width: 100%;
                 margin-left: 0;
             }
 
@@ -114,11 +119,8 @@ body {
 
                 @media (max-width: 468px) {
                     width: 100%;
-                    margin-left: 0;
-                    position: relative;
-                    top: 30px;
-                    left: 0;
-                    transform: translate(0%, 0%);
+                    min-width: 0;
+
 
                 }
 
@@ -153,6 +155,11 @@ body {
                     width: 100%;
                     max-width: 390px;
                     margin: 16px 0;
+
+                    @media (max-width: 468px) {
+                        font-size: 13px;
+                        max-width: 300px;
+                    }
                 }
 
                 p {
@@ -160,6 +167,10 @@ body {
                     font-family: $inter;
                     width: 100%;
                     max-width: 390px;
+
+                    @media (max-width: 468px) {
+                        max-width: 300px;
+                    }
                 }
             }
         }
